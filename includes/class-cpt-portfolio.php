@@ -154,8 +154,10 @@ class Cpt_Portfolio {
 
 		$plugin_admin = new Cpt_Portfolio_Admin( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'init', $plugin_admin, 'portfolio', 0 );	
-		
+		$this->loader->add_action( 'init', $plugin_admin, 'portfolio', 0 );
+		$this->loader->add_action( 'init', $plugin_admin, 'acf_fields', 0 );
+		$this->loader->add_action( 'admin_notices', $plugin_admin, 'acf_notice_error' );
+
 	}
 
 	/**

@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       CPT Portfolio
  * Plugin URI:        https://millertchris.com
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       A portfolio custom post type for creating collections of work.
  * Version:           1.0.0
  * Author:            Chris Miller
  * Author URI:        https://millertchris.com

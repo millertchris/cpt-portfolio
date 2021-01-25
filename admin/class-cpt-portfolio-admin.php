@@ -94,7 +94,7 @@ class Cpt_Portfolio_Admin {
 			'label'                 => __( 'Portfolio', 'text_domain' ),
 			'description'           => __( 'A collection of work', 'text_domain' ),
 			'labels'                => $labels,
-			'supports'              => array( 'title' ),
+			'supports'              => array( 'title', 'thumbnail' ),
 			'hierarchical'          => false,
 			'public'                => true,
 			'show_ui'               => true,
@@ -112,4 +112,161 @@ class Cpt_Portfolio_Admin {
 		);
 		register_post_type( 'portfolio', $args );
 	}
+
+	public function acf_fields() {
+		if( function_exists('acf_add_local_field_group') ) {
+
+			// Check if group_600e26eb52243 already exists
+			$registered_field_group = array_keys(array_column(acf_get_field_groups(), 'key'), 'group_600e26eb52243');
+
+			// Add the field group if it does not exist
+			if($registered_field_group == FALSE) {
+
+				// Exported field group from ACF
+				$field_group = array(
+					'key' => 'group_600e26eb52243',
+					'title' => 'CPT - Portfolio',
+					'fields' => array(
+						array(
+							'key' => 'field_600e297c5d97e',
+							'label' => 'Project',
+							'name' => 'project',
+							'type' => 'text',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '50',
+								'class' => '',
+								'id' => '',
+							),
+							'default_value' => '',
+							'placeholder' => '',
+							'prepend' => '',
+							'append' => '',
+							'maxlength' => '',
+						),
+						array(
+							'key' => 'field_600e2abe5d981',
+							'label' => 'Url',
+							'name' => 'url',
+							'type' => 'url',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '50',
+								'class' => '',
+								'id' => '',
+							),
+							'default_value' => '',
+							'placeholder' => '',
+						),
+						array(
+							'key' => 'field_600e2a855d97f',
+							'label' => 'Description',
+							'name' => 'description',
+							'type' => 'wysiwyg',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'default_value' => '',
+							'tabs' => 'all',
+							'toolbar' => 'full',
+							'media_upload' => 1,
+							'delay' => 0,
+						),
+						array(
+							'key' => 'field_600e27031421a',
+							'label' => 'Gallery',
+							'name' => 'gallery',
+							'type' => 'gallery',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'return_format' => 'array',
+							'preview_size' => 'medium',
+							'insert' => 'append',
+							'library' => 'all',
+							'min' => '',
+							'max' => '',
+							'min_width' => '',
+							'min_height' => '',
+							'min_size' => '',
+							'max_width' => '',
+							'max_height' => '',
+							'max_size' => '',
+							'mime_types' => '',
+						),
+						array(
+							'key' => 'field_600e2a9b5d980',
+							'label' => 'Video',
+							'name' => 'video',
+							'type' => 'oembed',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'width' => '',
+							'height' => '',
+						),
+					),
+					'location' => array(
+						array(
+							array(
+								'param' => 'post_type',
+								'operator' => '==',
+								'value' => 'portfolio',
+							),
+						),
+					),
+					'menu_order' => 0,
+					'position' => 'normal',
+					'style' => 'seamless',
+					'label_placement' => 'top',
+					'instruction_placement' => 'label',
+					'hide_on_screen' => '',
+					'active' => true,
+					'description' => '',
+				);
+
+				// Remove ACF Pro fields if the Pro version is not installed
+				if ( !defined( 'ACF_PRO' ) ) {
+					$remove_keys = array_keys(array_column($field_group['fields'], 'type'), 'gallery');
+
+					foreach($remove_keys as $key) {
+						unset($field_group['fields'][$key]);
+					}
+				}
+
+				// Add the local ACF field group
+				acf_add_local_field_group($field_group);
+			}
+		}
+	}
+
+	public function acf_notice_error() {
+		// Throw an error if ACF is not installed
+		if(  !class_exists('acf')  ) {
+			$class = 'notice notice-error';
+			$message = __( 'CPT Portfolio - <a href="https://wordpress.org/plugins/advanced-custom-fields/" target="_blank">Advanced Custom Fields</a> must be installed', 'sample-text-domain' );
+
+			printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), $message ); 
+		}
+	}
+
 }
