@@ -16,7 +16,7 @@
  * Plugin Name:       CPT Portfolio
  * Plugin URI:        https://millertchris.com
  * Description:       A portfolio custom post type for creating collections of work.
- * Version:           1.0.0
+ * Version:           1.1.0
  * Author:            Chris Miller
  * Author URI:        https://millertchris.com
  * License:           GPL-2.0+
@@ -42,7 +42,7 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'CPT_PORTFOLIO_VERSION', '1.0.0' );
+define( 'CPT_PORTFOLIO_VERSION', '1.1.0' );
 
 /**
  * The code that runs during plugin activation.
