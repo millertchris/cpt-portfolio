@@ -3,7 +3,7 @@ Contributors: millertchris
 Donate link: https://millertchris.com/
 Tags: portfolio, post
 Requires at least: 4.7
-Tested up to: 5.4
+Tested up to: 5.6
 Stable tag: 4.3
 Requires PHP: 7.0
 License: GPLv2 or later
