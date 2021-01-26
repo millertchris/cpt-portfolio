@@ -9,7 +9,7 @@
  * that starts the plugin.
  *
  * @link              https://millertchris.com
- * @since             1.1.0
+ * @since             1.0.0
  * @package           Cpt_Portfolio
  *
  * @wordpress-plugin
