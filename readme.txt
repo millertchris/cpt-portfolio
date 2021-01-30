@@ -21,6 +21,10 @@ This plugin creates a WordPress custom post type and leverages ACF (Advanced Cus
 
 == Changelog ==
 
+= 1.2 =
+- Using the_content filter to display a single portfolio on single pages
+- Added some baseline styling to handle the layout
+
 = 1.1 =
 - Included the `acf-fields.json` so you can import em' and change em' 🎉 
 - Added support for `acf_add_local_field_group` to set/add ACF fields
