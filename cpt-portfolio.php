@@ -16,7 +16,7 @@
  * Plugin Name:       CPT Portfolio
  * Plugin URI:        https://millertchris.com
  * Description:       A portfolio custom post type for creating collections of work.
- * Version:           1.1.0
+ * Version:           1.2.0
  * Author:            Chris Miller
  * Author URI:        https://millertchris.com
  * License:           GPL-2.0+

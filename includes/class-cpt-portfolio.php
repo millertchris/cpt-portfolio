@@ -164,12 +164,15 @@ class Cpt_Portfolio {
 	 * Register all of the hooks related to the public-facing functionality
 	 * of the plugin.
 	 *
-	 * @since    1.0.0
+	 * @since    1.2.0
 	 * @access   private
 	 */
 	private function define_public_hooks() {
 
 		$plugin_public = new Cpt_Portfolio_Public( $this->get_plugin_name(), $this->get_version() );
+		
+		$this->loader->add_action( 'wp_head', $plugin_public, 'enqueue_styles' );
+		$this->loader->add_filter( 'the_content', $plugin_public, 'single_portfolio' );
 
 	}
 

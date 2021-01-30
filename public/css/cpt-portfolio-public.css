@@ -2,3 +2,34 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
+
+.portfolio-item .row {
+	display: flex;
+	padding: 100px 0;
+}
+
+.portfolio-item .col {
+	width: 50%;
+}
+
+.portfolio-item .col:nth-child(1) {
+	padding-right: 40px;
+}
+
+.portfolio-item .col:only-child {
+	width: 100%;
+}
+
+.portfolio-item .col:nth-child(2) {
+	padding-left: 40px;
+}
+
+.portfolio-item .gallery {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.portfolio-item .gallery img {
+	width: 50%;
+}

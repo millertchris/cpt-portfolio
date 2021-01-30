@@ -100,4 +100,15 @@ class Cpt_Portfolio_Public {
 
 	}
 
+	/**
+	 * Display single portfolio content for the public-facing side of the site.
+	 *
+	 * @since    1.2.0
+	 */
+	public function single_portfolio() {
+		if(is_single() && get_post_type() == 'portfolio') {
+			$content = require 'partials/cpt-portfolio-public-display.php';
+		}
+	}
+
 }
